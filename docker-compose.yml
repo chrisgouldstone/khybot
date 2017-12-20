@@ -1,0 +1,18 @@
+version: "2"
+services:
+  bot:
+    build: .
+    ports:
+      - "31234:31234"
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    environment:
+      # provide your credentials here
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=Be3pb0opHad0uk3n!
+    volumes:
+      - /data/mongodb/db:/data/db
+    ports:
+      - "27017:27017"
